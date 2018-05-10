@@ -5,8 +5,6 @@ import java.awt.EventQueue;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.event.KeyEvent;
-import java.awt.event.KeyListener;
 import java.io.IOException;
 
 import javax.swing.GroupLayout;
@@ -15,11 +13,13 @@ import javax.swing.JButton;
 import javax.swing.JEditorPane;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
 import controller.Controller;
 import exceptions.AgeMissingException;
+import exceptions.invalidUserInputException;
 
 public class SecondWindow extends JFrame {
 
@@ -55,18 +55,27 @@ public class SecondWindow extends JFrame {
 		
 		
 		JButton btnNewButton = new JButton("Próximo\n");
+		JEditorPane editorPane = new JEditorPane();
+		KeyboardListener keyboard = new KeyboardListener();
+		editorPane.addKeyListener(keyboard);
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				//escreve dados pelo controller
 				Controller.getInstance().printArray();
 				try {
+					Controller.getInstance().validateUserInput(editorPane.getText());
 					Controller.getInstance().updateDataBase();
 				} catch (AgeMissingException e1) {
 					// TODO Auto-generated catch block
+					JOptionPane.showMessageDialog(null, "Por favor, insira sua idade", "Erro!", JOptionPane.ERROR_MESSAGE);
 					e1.printStackTrace();
 				} catch (IOException e1) {
 					// TODO Auto-generated catch block
 					e1.printStackTrace();
+				} catch (invalidUserInputException e1) {
+					JOptionPane.showMessageDialog(null, "Por favor, digite a mensagem corretamente", "Erro!", JOptionPane.ERROR_MESSAGE);
+					Controller.getInstance().resetArray();
+					editorPane.setText("");
 				}
 			}
 		});
@@ -74,9 +83,8 @@ public class SecondWindow extends JFrame {
 		JLabel lblNewLabel = new JLabel("<html>Eu plantei uma semente e ela me contou uma piada, <br> é melhor conquistar a si mesmo do que vencer mil batalhas. </html>");
 		lblNewLabel.setForeground(Color.DARK_GRAY);
 		lblNewLabel.setFont(new Font("Lucida Grande", Font.PLAIN, 18));
-		KeyboardListener keyboard = new KeyboardListener();
-		JEditorPane editorPane = new JEditorPane();
-		editorPane.addKeyListener(keyboard);
+		
+		
 		
 		GroupLayout gl_contentPane = new GroupLayout(contentPane);
 		gl_contentPane.setHorizontalGroup(

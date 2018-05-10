@@ -7,25 +7,38 @@ import java.io.PrintWriter;
 import java.util.ArrayList;
 
 import exceptions.AgeMissingException;
+import exceptions.invalidUserInputException;
 
 public class Controller {
 	private static Controller instanciaController;
 	public ArrayList<String> keys = new ArrayList<String>();
 	public int age = 0;
+	public String desiredInput = "Eu plantei uma semente e ela me contou uma piada, é melhor conquistar a si mesmo do que vencer mil batalhas.";
+	
+	
 	private Controller() {
-
+	
 	}
+	
+	public static Controller getInstance(){
+		if(instanciaController == null) 
+			instanciaController = new Controller();
+		return instanciaController;
+	}
+	
 	public void addKey(String newKey) {
 		keys.add(newKey);
 	}
 	public void setAge(int age) {
 		this.age = age;
 	}
-	public static Controller getInstance(){
-		if(instanciaController == null) 
-			instanciaController = new Controller();
-		return instanciaController;
+
+	public void validateUserInput(String userInput) throws invalidUserInputException {
+		if(!userInput.equals(desiredInput)) {
+			throw new invalidUserInputException();
+		}
 	}
+	
 	public void printArray() {
 		for(String s : keys) {
 			System.out.println(s);
@@ -44,9 +57,14 @@ public class Controller {
 			for(String key : keys) {
 				out.println(key);
 			}
+			out.println();
 			
 		} catch (IOException e) {
 			
 		}
+	}
+
+	public void resetArray() {
+		keys.clear();	
 	}
 }
