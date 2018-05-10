@@ -10,6 +10,9 @@ import javax.swing.GroupLayout.Alignment;
 import java.awt.Font;
 import javax.swing.JTextField;
 import javax.swing.LayoutStyle.ComponentPlacement;
+
+import controller.Controller;
+
 import java.awt.Color;
 import java.awt.FlowLayout;
 import java.awt.GridLayout;
@@ -65,6 +68,7 @@ public class Window {
 		JButton btnNewButton = new JButton("Continuar");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				Controller.getInstance().setAge(Integer.parseInt(textField.getText()));
 				SecondWindow second = new SecondWindow();
 				second.setVisible(true);
 				frame.setVisible(false);
