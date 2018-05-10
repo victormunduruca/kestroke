@@ -65,6 +65,8 @@ public class SecondWindow extends JFrame {
 				try {
 					Controller.getInstance().validateUserInput(editorPane.getText());
 					Controller.getInstance().updateDataBase();
+					JOptionPane.showMessageDialog(null, "Muito obrigado por participar! tenha um ótimo dia :)", "Tudo ok", JOptionPane.INFORMATION_MESSAGE);
+					setVisible(false);
 				} catch (AgeMissingException e1) {
 					// TODO Auto-generated catch block
 					JOptionPane.showMessageDialog(null, "Por favor, insira sua idade", "Erro!", JOptionPane.ERROR_MESSAGE);
