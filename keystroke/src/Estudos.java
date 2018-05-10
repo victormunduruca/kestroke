@@ -1,9 +1,5 @@
-import java.awt.Container;
-import java.awt.FlowLayout;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
-import java.security.Timestamp;
-import java.util.Calendar;
 
 import javax.swing.JFrame;
 
@@ -17,7 +13,6 @@ public class Estudos extends JFrame {
 		this.addKeyListener(keyboard);
 		setSize(350, 250);
 		setVisible(true);
-	}
 
 	public static void main(String args[]) {
 		Estudos app = new Estudos();
