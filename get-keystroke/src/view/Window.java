@@ -65,6 +65,33 @@ public class Window {
 		textField = new JTextField();
 		textField.setColumns(10);
 		
+		textField.addKeyListener(new KeyListener() {
+
+			@Override
+			public void keyPressed(KeyEvent arg0) {
+				// TODO Auto-generated method stub
+				if(arg0.getKeyCode() == 10) {
+					Controller.getInstance().setAge(Integer.parseInt(textField.getText()));
+					SecondWindow second = new SecondWindow();
+					second.setVisible(true);
+					frame.setVisible(false);
+				}
+			}
+
+			@Override
+			public void keyReleased(KeyEvent arg0) {
+				// TODO Auto-generated method stub
+				
+			}
+
+			@Override
+			public void keyTyped(KeyEvent arg0) {
+				// TODO Auto-generated method stub
+				
+			}
+			
+		});
+		
 		JButton btnNewButton = new JButton("Continuar");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {

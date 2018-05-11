@@ -13,7 +13,7 @@ public class Controller {
 	private static Controller instanciaController;
 	public ArrayList<String> keys = new ArrayList<String>();
 	public int age = 0;
-	public String desiredInput = "Eu plantei uma semente e ela me contou uma piada, é melhor conquistar a si mesmo do que vencer mil batalhas.";
+	public String desiredInput = "eu plantei uma semente e ela me contou uma piada.";
 	
 	
 	private Controller() {

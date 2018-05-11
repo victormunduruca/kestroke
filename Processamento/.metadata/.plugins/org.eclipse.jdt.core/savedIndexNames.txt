@@ -1,0 +1,4 @@
+INDEX VERSION 1.130+C:\Users\mathe\OneDrive\UEFS\6º Semestre (2018.1)\Inteligência Artificial\Processamento\.metadata\.plugins\org.eclipse.jdt.core
+3295824664.index
+1244267927.index
+1814664183.index

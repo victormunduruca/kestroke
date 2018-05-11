@@ -54,7 +54,7 @@ public class SecondWindow extends JFrame {
 		
 		
 		
-		JButton btnNewButton = new JButton("PrÃ³ximo\n");
+		JButton btnNewButton = new JButton("Próximo\n");
 		JEditorPane editorPane = new JEditorPane();
 		KeyboardListener keyboard = new KeyboardListener();
 		editorPane.addKeyListener(keyboard);
@@ -65,7 +65,7 @@ public class SecondWindow extends JFrame {
 				try {
 					Controller.getInstance().validateUserInput(editorPane.getText());
 					Controller.getInstance().updateDataBase();
-					JOptionPane.showMessageDialog(null, "Muito obrigado por participar! tenha um Ã³timo dia :)", "Tudo ok", JOptionPane.INFORMATION_MESSAGE);
+					JOptionPane.showMessageDialog(null, "Muito obrigado por participar! Tenha um ótimo dia :)", "Tudo ok", JOptionPane.INFORMATION_MESSAGE);
 					setVisible(false);
 				} catch (AgeMissingException e1) {
 					// TODO Auto-generated catch block
@@ -82,7 +82,7 @@ public class SecondWindow extends JFrame {
 			}
 		});
 		
-		JLabel lblNewLabel = new JLabel("<html>Eu plantei uma semente e ela me contou uma piada, <br> Ã© melhor conquistar a si mesmo do que vencer mil batalhas. </html>");
+		JLabel lblNewLabel = new JLabel("<html>eu plantei uma semente e ela me contou uma piada.</html>");
 		lblNewLabel.setForeground(Color.DARK_GRAY);
 		lblNewLabel.setFont(new Font("Lucida Grande", Font.PLAIN, 18));
 		
