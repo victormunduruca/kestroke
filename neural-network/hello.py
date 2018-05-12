@@ -12,13 +12,12 @@ ds = SupervisedDataSet(48, 1)
 
 #ds.addSample((454,1828,593,219,297,304,344,218,344,579,375,265,187,188,218,313,224,391,416,586,281,1141,442,297,469,1014,210,797,510,421,526,750,318,266,297,375,226,531,531,266,188,546,293,219,203,172,156,27797), (27))
 #ds.addSample((774,1594,576,2187,536,422,370,343,485,1017,335,344,344,257,406,235,640,568,297,313,258,1000,483,266,453,1336,711,313,2188,1470,773,922,420,297,297,520,282,828,683,344,363,500,1172,305,422,641,816,844), (41))
-
-
-input = lines[0].split(",")
-[float(i) for i in input if i != '']
-for i in input[1:]: 
+for i in xrange(len(lines)):
     print(i)
-ds.addSample(input[1:], (19))
+    input = lines[i].split(",")
+    [float(i) for i in input if i != '']
+    print(input[0])
+    ds.addSample(input[1:], input[0])
 
 #for sample in lines:
   #  sample.split(",")
@@ -38,8 +37,8 @@ nn = buildNetwork(48, 4, 1, bias=True)
 
 trainer = BackpropTrainer(nn, ds)
 
-for i in xrange(2000):
-    print(trainer.train())
+# for i in xrange(2000):
+#     print(trainer.train())
 
 
 #print(nn.activate([149,328,515,179,172,188,437,172,191,1922,322,250,172,172,144,188,156,156,172,328,173,219,828,165,500,157,1355,827,250,2276,2596,782,231,297,906,134,250,672,796,282,185,157,312,235,703,159,129,2687]))
