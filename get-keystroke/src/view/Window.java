@@ -27,7 +27,7 @@ public class Window {
 	private JFrame frame;
 	private JTextField textField;
 
-	/**
+	/** 
 	 * Launch the application.
 	 */
 	public static void main(String[] args) {
