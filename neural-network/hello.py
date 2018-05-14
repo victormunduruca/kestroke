@@ -18,7 +18,7 @@ for input in lines:
 train, test = ds.splitWithProportion(0.25)
 
 
-nn = buildNetwork(48, 40, 1, bias=True, outclass = SigmoidLayer)
+nn = buildNetwork(48, 20, 1, bias=True, outclass = SigmoidLayer)
 nn.reset()
 
 trainer = BackpropTrainer(nn, train, learningrate=0.001)
