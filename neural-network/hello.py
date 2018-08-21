@@ -23,25 +23,25 @@ train, test = ds.splitWithProportion(0.25)
 nn = buildNetwork(48, 20, 1, bias=True, outclass = SigmoidLayer)
 nn.reset()
 
-trainer = BackpropTrainer(nn, train, learningrate=0.001)
+trainer = BackpropTrainer(nn, train)
 
 training_errors, validation_errors = trainer.trainUntilConvergence()
-
+j = 0
 print('erros de treino ------------------------------------------------------------')
 for value in training_errors:
     #print(training_errors)
-    print(value)
+    print("%s %s" % (value, j))
+    j+=1
 print('erros de validacao ----------------------------------------------------------')
+k = 0
 for val in validation_errors:
     #print(training_errors)
-    print(val)
+     print("%s %s" % (val, k))
+     k+=1
 
 #for i in xrange(3000):
  #   print(trainer.train())
 
+print('Teste ----------------------------------------------------------')
 
-#for inp, targ in test:
-#    mytarg = nn.activate(inp)
-  #  print(mytarg)
-  # print(targ)
-
+trainer.testOnData(test, verbose=True)

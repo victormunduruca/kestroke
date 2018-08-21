@@ -1,0 +1,9 @@
+{
+    "path" : "~/graphs/graphs",
+    "sortOrder" : [
+        {
+            "ascending" : true,
+            "columnIndex" : 2
+        }
+    ]
+}
